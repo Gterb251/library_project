@@ -1,5 +1,6 @@
 #include "Book.h"
 
+//Конструктор класса
 Book::Book(std::string c_title, std::string c_author, int c_year, std::string c_isbn)
 {
     title = c_title;
@@ -9,6 +10,15 @@ Book::Book(std::string c_title, std::string c_author, int c_year, std::string c_
     isAvailable = true;
 }
 
+//Getter-методы класса
+std::string Book::getTitle() {return title;}
+std::string Book::getAuthor() {return author;}
+int Book::getYear() {return year;}
+std::string Book::getISBN() {return isbn;}
+bool Book::getIsAvailable() {return isAvailable;}
+std::string Book::getBorrowedBy() {return borrowedBy;}
+
+//Методы класса
 void Book::borrowBook(const std::string& userName)
 {
     borrowedBy = userName;
@@ -35,15 +45,4 @@ void Book::displayInfo()
         std::cout << "Avaible: no\n";
         std::cout << "BorrowedBy: " << borrowedBy << "\n\n";
     }
-}
-
-int main()
-{
-    Book a("adsasd", "sdfs", 1324, "dsfkskdfjk");
-    a.displayInfo();
-    a.borrowBook("kafkj");
-    a.displayInfo();
-    a.returnBook();
-    a.displayInfo();
-    return 0;
 }

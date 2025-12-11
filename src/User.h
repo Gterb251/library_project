@@ -15,6 +15,8 @@ private:
 public:
 
     User(std::string c_name, std::string c_userId, int c_maxBooksAllowed);
+    std::string getName();
+    std::string getUserId();
     bool canBorrowMore();
     void addBook(const std::string& isbn);
     void removeBook(const std::string& isbn);

@@ -15,6 +15,12 @@ private:
 public:
 
     Book(std::string c_title, std::string c_author, int c_year, std::string c_isbn);
+    std::string getTitle();
+    std::string getAuthor();
+    int getYear();
+    std::string getISBN();
+    bool getIsAvailable();
+    std::string getBorrowedBy();
     void borrowBook(const std::string& userName);
     void returnBook();
     void displayInfo();

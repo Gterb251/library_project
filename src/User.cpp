@@ -1,5 +1,6 @@
 #include "User.h"
 
+//Конструктор класса
 User::User(std::string c_name, std::string c_userId, int c_maxBooksAllowed = 3)
 {
     name = c_name;
@@ -7,6 +8,11 @@ User::User(std::string c_name, std::string c_userId, int c_maxBooksAllowed = 3)
     maxBooksAllowed = c_maxBooksAllowed;
 }
 
+//Getter-методы класса
+std::string User::getName() {return name;}
+std::string User::getUserId() {return userId;}
+
+//Методы класса
 bool User::canBorrowMore()
 {
     if (borrowedBooks.size() < maxBooksAllowed) return true;
@@ -35,18 +41,4 @@ void User::displayProfile()
     for (int i = 0; i < borrowedBooks.size(); ++i) std::cout << " " << borrowedBooks[i];
     std::cout << "\n";
     std::cout << "MaxBooks: " << maxBooksAllowed << "\n\n";
-}
-
-int main()
-{
-    User a("dsfsdf", "USR_001", 4);
-    a.displayProfile();
-    a.addBook("dfkjkas");
-    a.addBook("aaaaaaa");
-    a.addBook("bbbbbbbbbbbbbb");
-    a.addBook("ccccccccccc");
-    a.removeBook("aaaaaaa");
-    a.removeBook("ddddddd");
-    a.displayProfile();
-    return 0;
 }
