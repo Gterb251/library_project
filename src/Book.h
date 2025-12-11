@@ -1,23 +1,21 @@
 #include <iostream>
 #include <cstring>
 
-using namespace std;
-
 class Book {
     
 private:
 
-    string title;
-    string author;
+    std::string title;
+    std::string author;
     int year;
-    string isbn;
+    std::string isbn;
     bool isAvailable;
-    string borrowedBy;
+    std::string borrowedBy;
 
 public:
 
-    Book(string c_title, string c_author, int c_year, string c_isbn);
-    void borrowBook(const string& userName);
+    Book(std::string c_title, std::string c_author, int c_year, std::string c_isbn);
+    void borrowBook(const std::string& userName);
     void returnBook();
     void displayInfo();
 

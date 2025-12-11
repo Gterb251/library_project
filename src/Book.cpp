@@ -1,6 +1,6 @@
 #include "Book.h"
 
-Book::Book(string c_title, string c_author, int c_year, string c_isbn)
+Book::Book(std::string c_title, std::string c_author, int c_year, std::string c_isbn)
 {
     title = c_title;
     author = c_author;
@@ -9,7 +9,7 @@ Book::Book(string c_title, string c_author, int c_year, string c_isbn)
     isAvailable = true;
 }
 
-void Book::borrowBook(const string& userName)
+void Book::borrowBook(const std::string& userName)
 {
     borrowedBy = userName;
     isAvailable = false;
@@ -23,17 +23,17 @@ void Book::returnBook()
 
 void Book::displayInfo()
 {
-    cout << "BOOK\n";
-    cout << "Title: " << title << "\n";
-    cout << "Author: " << author << "\n";
-    cout << "Year: " << year << "\n";
-    cout << "ISBN: " << isbn << "\n";
+    std::cout << "BOOK\n";
+    std::cout << "Title: " << title << "\n";
+    std::cout << "Author: " << author << "\n";
+    std::cout << "Year: " << year << "\n";
+    std::cout << "ISBN: " << isbn << "\n";
     if (isAvailable) {
-        cout << "Avaible: yes\n";
-        cout << "BorrowedBy:\n";
+        std::cout << "Avaible: yes\n";
+        std::cout << "BorrowedBy:\n\n";
     } else {
-        cout << "Avaible: no\n";
-        cout << "BorrowedBy: " << borrowedBy << "\n";
+        std::cout << "Avaible: no\n";
+        std::cout << "BorrowedBy: " << borrowedBy << "\n\n";
     }
 }
 
