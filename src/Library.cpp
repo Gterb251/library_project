@@ -9,48 +9,11 @@ Library::Library()
 
 void Library::addBook(const Book& book)
 {
-    std::string title;
-    std::string author;
-    int year;
-    std::string isbn;
-    
-    std::cout << "Enter title of book: ";
-    std::cin >> title;
-
-    std::cout << "Enter author: ";
-    std::cin >> author;
-
-    std::cout << "Enter year of book's publication: ";
-    std::cin >> year;
-
-    std::cout << "Enter unique ISBN: ";
-    std::cin >> isbn;
-
-    Book book(title, author, year, isbn);
-
     books.push_back(book);
 }
 
 void Library::addUser(const User& user)
 {
-    std::string name;
-    std::string userId;
-    int id;
-    int maxBooksAllowed;
-    
-    std::cout << "Enter name of user: ";
-    std::cin >> name;
-
-    id = users.size() + 1;
-    if (id / 10 == 0) userId = "USR_00" + std::to_string(id);
-    else if (id / 100 == 0) userId = "USR_0" + std::to_string(id);
-    else userId = "USR_" + std::to_string(id);
-    
-    std::cout << "Enter max number books that can be allowed: ";
-    std::cin >> maxBooksAllowed;
-
-    User user(name, userId, maxBooksAllowed);
-
     users.push_back(user);
 }
 
@@ -166,6 +129,7 @@ void Library::loadFromFile()
         buf.erase(0, 11);
         if (buf == "yes") {
             isAvailable = true;
+            getline(fin, buf);
             borrowedBy = "";
         } else {
             isAvailable = false;
@@ -177,6 +141,8 @@ void Library::loadFromFile()
         book.setBook(title, author, year, isbn, isAvailable, borrowedBy);
 
         books.push_back(book);
+
+        getline(fin, buf);
     }
 
     std::string name;
@@ -185,6 +151,7 @@ void Library::loadFromFile()
     int maxBooksAllowed;
     User user;
 
+    std::getline(fin, buf);
     std::getline(fin, buf);
     for (; buf != "---"; std::getline(fin, buf)) {
         std::getline(fin, buf);
@@ -205,7 +172,29 @@ void Library::loadFromFile()
 
         user.setUser(name, userId, borrowedBooks, maxBooksAllowed);
         borrowedBooks.clear();
+
         users.push_back(user);
+        
+        getline(fin, buf);
     }
 
+}
+
+int main()
+{
+    Library library;
+    //Book book1("bbbbb", "b", 1578, "2222");
+    //library.addBook(book1);
+    //User user1("Bob", "USR_002", 2);
+    //library.addUser(user1);
+    library.saveToFile();
+    library.displayAllUsers();
+    library.displayAllBooks();
+    library.borrowBook("Alex", "1111");
+    library.displayAllUsers();
+    library.displayAllBooks();
+    library.returnBook("1111");
+    library.displayAllBooks();
+    library.displayAllUsers();
+    return 0;
 }
