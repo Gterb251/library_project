@@ -1,6 +1,8 @@
 #include "Book.h"
 
 //Конструктор класса
+Book::Book() {}
+
 Book::Book(std::string c_title, std::string c_author, int c_year, std::string c_isbn)
 {
     title = c_title;
@@ -17,6 +19,17 @@ int Book::getYear() {return year;}
 std::string Book::getISBN() {return isbn;}
 bool Book::getIsAvailable() {return isAvailable;}
 std::string Book::getBorrowedBy() {return borrowedBy;}
+
+//Setter-метод класса
+void Book::setBook(std::string s_title, std::string s_author, int s_year, std::string s_isbn, bool s_isAvailable, std::string s_borrowedBy)
+{
+    title = s_title;
+    author = s_author;
+    year = s_year;
+    isbn = s_isbn;
+    isAvailable = s_isAvailable;
+    borrowedBy = s_borrowedBy;
+}
 
 //Методы класса
 void Book::borrowBook(const std::string& userName)

@@ -1,6 +1,8 @@
 #include "User.h"
 
 //Конструктор класса
+User::User() {}
+
 User::User(std::string c_name, std::string c_userId, int c_maxBooksAllowed = 3)
 {
     name = c_name;
@@ -11,6 +13,18 @@ User::User(std::string c_name, std::string c_userId, int c_maxBooksAllowed = 3)
 //Getter-методы класса
 std::string User::getName() {return name;}
 std::string User::getUserId() {return userId;}
+int User::getNumberBorrowedBooks() {return borrowedBooks.size();}
+std::string User::getBorrowedBook(int i) {return *(borrowedBooks.data() + i);}
+int User::getMaxBooksAllowed() {return maxBooksAllowed;}
+
+//Setter-метод класса
+void User::setUser(std::string s_name, std::string s_userId, std::vector<std::string>& s_borrowedBooks, int s_maxBooksAllowed)
+{
+    name = s_name;
+    userId = s_userId;
+    borrowedBooks = s_borrowedBooks;
+    maxBooksAllowed = s_maxBooksAllowed;
+}
 
 //Методы класса
 bool User::canBorrowMore()

@@ -1,5 +1,8 @@
 #include "Book.h"
 #include "User.h"
+#include <fstream>
+#include <sstream>
+#include <stdlib.h>
 
 class Library {
 
