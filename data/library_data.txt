@@ -1,0 +1,37 @@
+BOOK
+Title: aaaaaaa
+Author: a
+Year: 158
+ISBN: 1111
+Available: no
+BorrowedBy: alex
+
+BOOK
+Title: bbbbbb
+Author: b
+Year: 754
+ISBN: 2222
+Available: no
+BorrowedBy: alex
+
+---USERS---
+
+USER
+Name: alex
+UserID: USR_001
+BorrowedBooks: 1111 2222
+MaxBooks: 4
+
+USER
+Name: bob
+UserID: USR_002
+BorrowedBooks:
+MaxBooks: 2
+
+USER
+Name: carl
+UserID: USR_003
+BorrowedBooks:
+MaxBooks: 3
+
+---

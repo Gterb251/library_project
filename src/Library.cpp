@@ -1,5 +1,6 @@
 #include "Library.h"
 
+//Конструктор класса
 Library::Library()
 {
     dataFile = "C:\\Nikita_Files\\Programs\\Git\\library_project\\data\\library_data.txt";
@@ -7,6 +8,10 @@ Library::Library()
     loadFromFile();
 }
 
+//Getter-метод класса
+int Library::getNumberUsers() {return users.size();}
+
+//Методы класса
 void Library::addBook(const Book& book)
 {
     books.push_back(book);
@@ -108,6 +113,7 @@ void Library::loadFromFile()
     Book book;
 
     std::getline(fin, buf);
+    if (buf == "") return;
     for (; buf != "---USERS---"; std::getline(fin, buf)) {
         std::getline(fin, buf);
         buf.erase(0, 7);
@@ -178,23 +184,4 @@ void Library::loadFromFile()
         getline(fin, buf);
     }
 
-}
-
-int main()
-{
-    Library library;
-    //Book book1("bbbbb", "b", 1578, "2222");
-    //library.addBook(book1);
-    //User user1("Bob", "USR_002", 2);
-    //library.addUser(user1);
-    library.saveToFile();
-    library.displayAllUsers();
-    library.displayAllBooks();
-    library.borrowBook("Alex", "1111");
-    library.displayAllUsers();
-    library.displayAllBooks();
-    library.returnBook("1111");
-    library.displayAllBooks();
-    library.displayAllUsers();
-    return 0;
 }

@@ -13,6 +13,7 @@ private:
 public:
 
     Library();
+    int getNumberUsers();
     void addBook(const Book& book);
     void addUser(const User& user);
     void borrowBook(const std::string& userName, const std::string& isbn);
